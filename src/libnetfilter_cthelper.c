@@ -2,8 +2,8 @@
  * (C) 2012 by Pablo Neira Ayuso <pablo@netfilter.org>
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the Lesser GNU General Public License as published
- * by the Free Software Foundation; either version 2.1 of the License, or
+ * it under the terms of the GNU General Public License as published
+ * by the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
  * This code has been sponsored by Vyatta Inc. <http://www.vyatta.com>
@@ -113,11 +113,11 @@ void nfct_helper_free(struct nfct_helper *h)
 {
 	int i;
 
-	free(h);
 	for (i=0; i<NF_CT_HELPER_CLASS_MAX; i++) {
 		if (h->expect_policy[i])
 			free(h->expect_policy[i]);
 	}
+	free(h);
 }
 EXPORT_SYMBOL(nfct_helper_free);
 
